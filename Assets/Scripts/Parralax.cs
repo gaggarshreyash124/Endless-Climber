@@ -4,31 +4,19 @@ using UnityEngine;
 
 public class Parralax : MonoBehaviour
 {
-    Rigidbody2D Body;
-    public GameObject[] layers;
-    public float speed = 1f;
-    public float distance = 19;
-    public float[] layerSpeed;
+    Material mat;
+    float distance;
 
-    void Start()
-    {
-        Body = GetComponent<Rigidbody2D>();
-        
+    [Range(0,7)]
+    public float speed = 1f;
+
+    private void Start() {
+        mat = GetComponent<Renderer>().material;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (transform.position.x >= distance)
-        {
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
-        }
-        else{
-            Body.velocity = new Vector2(speed, 0);
-            foreach (GameObject layer in layers)
-            {
-                Body.velocity = new Vector2(speed, 0);
-            }
-        }
+        distance += Time.deltaTime * speed;
+        mat.SetTextureOffset("_MainTex",Vector2.right * distance);  
     }
 }
