@@ -7,7 +7,7 @@ public class Parralax : MonoBehaviour
     Material mat;
     float distance;
 
-    [Range(0,7)]
+    [Range(0,1)]
     public float speed = 1f;
 
     private void Start() {
