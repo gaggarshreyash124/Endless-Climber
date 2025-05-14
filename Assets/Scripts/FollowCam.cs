@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FollowCam : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class FollowCam : MonoBehaviour
     {
         
         Destroy(player.gameObject); 
-
+        SceneManager.LoadScene(2);
         
     }
 }

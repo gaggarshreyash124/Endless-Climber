@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnerManager : MonoBehaviour
 {
-    public GameObject spawnerPrefab;           // Prefab for spawners
-    public Transform player;                   // Reference to player
-    public int numSpawnersAbove = 3;           // Minimum number of spawners above the player
-    public float spawnIncrement = 3f;          // Increment value for spawning spawners
-    private float highestPointReached = 0f;    // Track the highest point spawners have been spawned at
-    private float lastSpawnedY = 0f;           // Track the Y value of the last spawned spawner
+    public GameObject spawnerPrefab;
+    public Transform player;
+    public int numSpawnersAbove = 3;
+    public float spawnIncrement = 3f;
+    private float highestPointReached = 0f;
+    private float lastSpawnedY = 0f;
 
     void Start()
     {
@@ -64,5 +66,6 @@ public class SpawnerManager : MonoBehaviour
         // Create the spawner at the calculated position
         Vector3 spawnPos = new Vector3(transform.position.x + Random.Range(-8,8), spawnY, 0f);
         Instantiate(spawnerPrefab, spawnPos, Quaternion.identity);
+        
     }
 }
